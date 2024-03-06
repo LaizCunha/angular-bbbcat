@@ -1,0 +1,7 @@
+{
+  "name": "bbbcat",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
