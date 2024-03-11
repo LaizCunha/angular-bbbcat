@@ -1,0 +1,61 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cadastro de novo participante</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <form *ngIf="form" [formGroup]="form">
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-input formControlName="nome" type="text" label="Nome:" labelPlacement="floating" ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-select formControlName="estado" label="Estado:">
+            <ion-select-option *ngFor="let estado of estados" [value]="estado">{{ estado }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-select formControlName="pelagem" label="Pelagem:">
+            <ion-select-option *ngFor="let pelagem of pelagens" [value]="pelagem"> {{ pelagem }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-textarea label="Descrição:" formControlName="descricao" maxlength="500"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item label="Castrado:">
+          <ion-toggle formControlName="castrado">Castrado:</ion-toggle>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="auto">
+        <ion-button (click)="onClickSave()">
+          <ion-icon name="save" slot="start"></ion-icon>
+          Salvar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
+
