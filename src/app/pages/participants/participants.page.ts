@@ -16,14 +16,18 @@ export interface Cat {
 })
 export class ParticipantsPage implements OnInit {
 
-  public participants : Cat[];
+  public participants: Cat[];
 
-  constructor(private formDataService: FormDataService ) {
+  constructor(private formDataService: FormDataService) {
     this.participants = [];
   }
 
   ngOnInit() {
     this.participants = this.formDataService.getParticipants();
+  }
+
+  isEmpty(): boolean {
+    return this.participants.length == 0
   }
 
 }

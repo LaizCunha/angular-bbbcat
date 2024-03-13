@@ -5,15 +5,22 @@ import { Cat } from './pages/participants/participants.page';
   providedIn: 'root'
 })
 export class FormDataService {
-  private participants: Cat[] = [];
 
   constructor() { }
 
-  addParticipant(participant: Cat) {
-    this.participants.push(participant);
+  addParticipant(participant: Cat): void {
+    const catList: Cat[] = this.getParticipants();
+    catList.push(participant);
+    localStorage.setItem('participants', JSON.stringify(catList))
   }
 
-  getParticipants() : Cat[] {
-    return this.participants;
+  getParticipants(): Cat[] {
+    const jsonParticipants = localStorage.getItem('participants');
+    return jsonParticipants ? JSON.parse(jsonParticipants) : [];
   }
+
+  clearParticipants(): void {
+    localStorage.removeItem('participants');
+}
+
 }
