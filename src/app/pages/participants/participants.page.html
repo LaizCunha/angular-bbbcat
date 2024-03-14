@@ -10,9 +10,17 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item *ngFor="let participant of participants">
+    <ion-item *ngFor="let participant of participants; let i = index">
       {{participant.nome}}
+      <ion-button (click)="onClickRemoveItem(i)" slot="end" color="danger">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
     </ion-item>
   </ion-list>
   <ion-item *ngIf="isEmpty()">Ainda não existem participantes cadastrados!</ion-item>
+  <ion-item *ngIf="isFull()">
+    <ion-button (click)="onClickClearParticipants()" color="danger">
+      Limpar Participantes
+    </ion-button>
+  </ion-item>
 </ion-content>

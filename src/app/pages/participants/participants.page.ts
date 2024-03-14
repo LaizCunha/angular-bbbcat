@@ -30,4 +30,20 @@ export class ParticipantsPage implements OnInit {
     return this.participants.length == 0
   }
 
+  isFull(): boolean {
+    return this.participants.length != 0
+  }
+
+  onClickRemoveItem(index: number) {
+    if (index >= 0 && index < this.participants.length) {
+      this.participants.splice(index, 1);
+      localStorage.setItem('participants', JSON.stringify(this.participants));
+    }
+  }
+
+  onClickClearParticipants() {
+    this.formDataService.clearParticipants();
+    this.participants = [];
+  }
+
 }
