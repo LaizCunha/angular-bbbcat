@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonModal } from '@ionic/angular';
 import { FormDataService } from 'src/app/form-data.service';
 
 export interface Cat {
@@ -17,6 +18,9 @@ export interface Cat {
 export class ParticipantsPage implements OnInit {
 
   public participants: Cat[];
+  selectedParticipant: any;
+
+  @ViewChild('participantModal') participantModal: IonModal | undefined;
 
   constructor(private formDataService: FormDataService) {
     this.participants = [];
@@ -44,6 +48,16 @@ export class ParticipantsPage implements OnInit {
   onClickClearParticipants() {
     this.formDataService.clearParticipants();
     this.participants = [];
+  }
+
+  openParticipantModal(participant: any) {
+    this.selectedParticipant = participant;
+    this.participantModal?.present();
+  }
+
+  closeParticipantModal() {
+    this.selectedParticipant = null;
+    this.participantModal?.dismiss();
   }
 
 }

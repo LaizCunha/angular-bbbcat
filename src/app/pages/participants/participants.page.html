@@ -11,16 +11,44 @@
 <ion-content [fullscreen]="true">
   <ion-list>
     <ion-item *ngFor="let participant of participants; let i = index">
-      {{participant.nome}}
+      <span class="participant-name">{{participant.nome}}: </span>
       <ion-button (click)="onClickRemoveItem(i)" slot="end" color="danger">
         <ion-icon name="trash"></ion-icon>
+      </ion-button>
+      <ion-chip class="custom-chip">
+        {{participant.estado}}
+      </ion-chip>
+      <ion-chip class="custom-chip">
+        {{participant.pelagem}}
+      </ion-chip>
+      <ion-button (click)="openParticipantModal(participant)" color="primary">
+        <ion-icon name="information-circle"></ion-icon>
       </ion-button>
     </ion-item>
   </ion-list>
   <ion-item *ngIf="isEmpty()">Ainda não existem participantes cadastrados!</ion-item>
   <ion-item *ngIf="isFull()">
-    <ion-button (click)="onClickClearParticipants()" color="danger">
-      Limpar Participantes
-    </ion-button>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="onClickClearParticipants()" color="danger">
+          Limpar Participantes
+        </ion-button>
+      </ion-col>
+    </ion-row>
   </ion-item>
+
+  <ion-modal #participantModal>
+    <ng-template>
+      <ion-content>
+        <ion-toolbar>
+          <ion-title>Informações sobre {{selectedParticipant?.nome}}</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="closeParticipantModal()">X</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+        <ion-item id="info-participants">{{selectedParticipant?.descricao}}</ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
 </ion-content>
