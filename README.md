@@ -1,11 +1,12 @@
 ## Criando o "BBBCat" - Um Aplicativo Angular Ionic para Cadastrar seus gatinhos
+&#x1F638; &#x1F63B; &#x1F431;
 
 O Big Brother Brasil é um fenômeno televisivo que cativa milhões de telespectadores ao redor do mundo, mas e se aplicássemos esse conceito encantador ao reino dos gatinhos? Com a popularidade dos felinos nas redes sociais, não é difícil imaginar um "BBBCat" conquistando corações e mentes. Vamos imaginar a jornada de criar um aplicativo Angular Ionic para gerenciar este reality show felino!
 
-## Conceito do Aplicativo:
+## Conceito do Aplicativo &#x1F638;:
 O "BBBCat" é um aplicativo que permite aos usuários cadastrar participantes felinos para um reality show inspirado no formato do Big Brother. Em vez de pessoas, os participantes são adoráveis gatinhos com suas próprias personalidades, histórias e características únicas.
 
-## Funcionalidades do Aplicativo:
+## Funcionalidades do Aplicativo &#x1F63B;:
 
 * Cadastro de Participantes:
 
@@ -20,7 +21,7 @@ Uma página dedicada exibe todos os participantes cadastrados, apresentando um r
 Os usuários têm a capacidade de deletar participantes individualmente ou limpar todos os participantes cadastrados de uma só vez. Isso proporciona flexibilidade no gerenciamento dos participantes do reality show.
 
 
-## Implementação do Aplicativo:
+## Implementação do Aplicativo &#x1F431;:
 
 * Desenvolvimento com Angular Ionic:
 
